@@ -24,7 +24,7 @@ export const BUSINESS = {
   },
   geo: { lat: 21.627, lon: 73.002 },
   url: 'https://dpfilterpresstrading.com',
-  ogImage: 'https://dpfilterpresstrading.com/images/hero_banner.png',
+  ogImage: 'https://dpfilterpresstrading.com/images/hero_banner.webp',
 }
 
 /* ─────────────────────────────────────────────────────────────

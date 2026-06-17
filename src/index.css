@@ -39,7 +39,7 @@
   }
 
   --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
-  --background-image-hero-pattern: url('/images/hero_banner.png');
+  --background-image-hero-pattern: url('/images/hero_banner.webp');
 
   --shadow-glow: 0 0 20px rgba(126, 200, 40, 0.3);
   --shadow-glow-lg: 0 0 40px rgba(126, 200, 40, 0.4);

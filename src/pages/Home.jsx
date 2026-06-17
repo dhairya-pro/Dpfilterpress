@@ -256,7 +256,7 @@ export default function Home() {
 
           <motion.div initial={{ opacity: 0, x: 60 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9, delay: 0.2 }} className="relative hidden lg:block">
             <div className="relative rounded-3xl overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.6)] gradient-border">
-              <img src="/images/hero_banner.png" alt="Industrial filter press and hydraulic equipment at DP Filter Press Trading Ankleshwar Gujarat" className="w-full h-[480px] object-cover" width="600" height="480" />
+              <img src="/images/hero_banner.webp" alt="Industrial filter press and hydraulic equipment at DP Filter Press Trading Ankleshwar Gujarat" className="w-full h-[480px] object-cover" width="600" height="480" />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <p className="text-white font-semibold text-sm">📍 GIDC Industrial Area, Ankleshwar</p>
@@ -415,7 +415,7 @@ export default function Home() {
           </motion.div>
           <motion.div initial={{ opacity:0, x:50 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} transition={{ duration:0.7 }}>
             <div className="rounded-3xl overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.6)] gradient-border">
-              <img src="/images/about_banner.png" alt="DP Filter Press Trading industrial facility at GIDC Ankleshwar Gujarat" className="w-full h-80 object-cover" width="600" height="320" />
+              <img src="/images/about_banner.webp" alt="DP Filter Press Trading industrial facility at GIDC Ankleshwar Gujarat" className="w-full h-80 object-cover" width="600" height="320" />
             </div>
             <div className="grid grid-cols-3 gap-3 mt-4">
               {[{ icon:MapPin, label:'GIDC Ankleshwar' }, { icon:ShieldCheck, label:'Quality Assured' }, { icon:Clock, label:'Fast Response' }].map(({ icon:Icon, label }) => (

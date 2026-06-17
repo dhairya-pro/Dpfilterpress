@@ -161,7 +161,7 @@ export default function About() {
           >
             <div className="rounded-3xl overflow-hidden shadow-card-hover gradient-border mb-6">
               <img
-                src="/images/about_banner.png"
+                src="/images/about_banner.webp"
                 alt="DP Filter Press Trading industrial facility at GIDC Ankleshwar Gujarat"
                 className="w-full h-72 object-cover"
                 width="600" height="288"
