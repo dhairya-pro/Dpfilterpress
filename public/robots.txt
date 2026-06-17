@@ -1,0 +1,31 @@
+# DP Filter Press Trading — Robots.txt
+# https://dpfilterpresstrading.com
+
+User-agent: *
+Allow: /
+Allow: /products
+Allow: /products?cat=
+Allow: /services
+Allow: /about
+Allow: /contact
+
+# Disallow internal/admin paths
+Disallow: /api/
+Disallow: /.env
+Disallow: /node_modules/
+Disallow: /.git/
+
+# Crawl delay (be respectful to smaller servers)
+Crawl-delay: 1
+
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Google Image Bot
+User-agent: Googlebot-Image
+Allow: /images/
+
+# Sitemap location
+Sitemap: https://dpfilterpresstrading.com/sitemap.xml

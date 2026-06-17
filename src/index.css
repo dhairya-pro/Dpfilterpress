@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0A1628;
+  --color-primary-light: #1E3A5F;
+  --color-primary-mid: #0D2444;
+
+  --color-accent: #7EC828;
+  --color-accent-dark: #5FA01E;
+  --color-accent-light: #9FD84A;
+
+  --color-neutral-50: #F4F6F8;
+  --color-neutral-100: #E8ECF0;
+  --color-neutral-200: #D0D8E4;
+  --color-neutral-800: #2D3748;
+  --color-neutral-900: #1A202C;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Outfit', 'Inter', sans-serif;
+
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-bounce-slow: bounce 2s infinite;
+  --animate-spin-slow: spin 8s linear infinite;
+  --animate-fade-in: fadeIn 0.6s ease-out forwards;
+  --animate-slide-up: slideUp 0.6s ease-out forwards;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes slideUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --background-image-hero-pattern: url('/images/hero_banner.png');
+
+  --shadow-glow: 0 0 20px rgba(126, 200, 40, 0.3);
+  --shadow-glow-lg: 0 0 40px rgba(126, 200, 40, 0.4);
+  --shadow-card: 0 4px 20px rgba(10, 22, 40, 0.15);
+  --shadow-card-hover: 0 8px 40px rgba(10, 22, 40, 0.25);
+}
+
+@layer base {
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #F4F6F8;
+    color: #1A202C;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', 'Inter', sans-serif; }
+}
+
+.btn-primary {
+  @apply bg-accent text-primary font-bold px-6 py-3 rounded-xl transition-all duration-300
+  hover:bg-accent-dark hover:shadow-glow hover:-translate-y-0.5 active:translate-y-0
+  inline-flex items-center gap-2 relative overflow-hidden;
+}
+.btn-primary::after {
+  content: '';
+  @apply absolute inset-0 bg-white/20 opacity-0 transition-opacity duration-200;
+}
+.btn-primary:hover::after { @apply opacity-100; }
+
+.btn-secondary {
+  @apply bg-transparent border-2 border-accent text-accent font-bold px-6 py-3 rounded-xl
+  transition-all duration-300 hover:bg-accent hover:text-primary hover:shadow-glow
+  hover:-translate-y-0.5 inline-flex items-center gap-2;
+}
+.btn-white {
+  @apply bg-white text-primary font-bold px-6 py-3 rounded-xl transition-all duration-300
+  hover:bg-neutral-50 hover:shadow-card-hover hover:-translate-y-0.5 inline-flex items-center gap-2;
+}
+.card {
+  @apply bg-white rounded-2xl shadow-card hover:shadow-card-hover
+  transition-all duration-300 hover:-translate-y-1;
+}
+.section-title { @apply font-heading text-3xl md:text-4xl font-bold text-primary; }
+.section-subtitle { @apply text-neutral-800 text-lg mt-3 max-w-2xl; }
+.tag {
+  @apply inline-flex items-center gap-1 bg-accent/10 text-accent-dark
+  text-xs font-semibold px-3 py-1.5 rounded-full border border-accent/20;
+}
+.nav-link {
+  @apply relative text-white/80 hover:text-white font-medium transition-colors duration-200
+  after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent
+  after:transition-all after:duration-300 hover:after:w-full pb-1;
+}
+.nav-link-active { @apply text-accent after:w-full; }
+
+.section-divider {
+  @apply w-16 h-1 bg-gradient-to-r from-accent to-accent-light rounded-full;
+}
+
+@utility text-gradient {
+  @apply bg-gradient-to-r from-accent via-accent-light to-accent bg-clip-text text-transparent;
+}
+@utility bg-hero {
+  background: linear-gradient(135deg, #0A1628 0%, #1E3A5F 45%, #0D2444 100%);
+}
+@utility glass {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(10, 22, 40, 0.75);
+  border: 1px solid rgba(126, 200, 40, 0.2);
+}
+@utility glass-white {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+@utility perspective {
+  perspective: 1000px;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0A1628; }
+::-webkit-scrollbar-thumb { background: #7EC828; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #5FA01E; }
+
+/* ─── WhatsApp pulse ─── */
+@keyframes whatsapp-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70%  { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+.whatsapp-btn { animation: whatsapp-pulse 2.5s infinite; }
+
+/* ─── Floating orb ─── */
+@keyframes orb-float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%       { transform: translateY(-24px) scale(1.04); }
+}
+.orb-float { animation: orb-float 6s ease-in-out infinite; }
+.orb-float-slow { animation: orb-float 9s ease-in-out infinite; }
+
+/* ─── Gradient border ─── */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, #7EC828, #1E3A5F);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ─── Animated underline ─── */
+.animated-underline {
+  background-image: linear-gradient(90deg, #7EC828, #9FD84A);
+  background-repeat: no-repeat;
+  background-size: 0% 3px;
+  background-position: 0 100%;
+  transition: background-size 0.4s ease;
+}
+.animated-underline:hover { background-size: 100% 3px; }
+
+/* ─── Shimmer loader ─── */
+@keyframes shimmer {
+  0%   { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ─── Ticker scroll ─── */
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-track { animation: ticker 30s linear infinite; }
+.ticker-track:hover { animation-play-state: paused; }
+
+/* ─── Glow ring on hero ─── */
+@keyframes glow-ring {
+  0%, 100% { opacity: 0.15; transform: scale(1);   }
+  50%       { opacity: 0.35; transform: scale(1.05); }
+}
+.glow-ring { animation: glow-ring 4s ease-in-out infinite; }
+
+/* ─── Card shine sweep ─── */
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+.card-shine::after {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 40%;
+  height: 220%;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.18) 50%, transparent 60%);
+  transform: rotate(25deg);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+.card-shine:hover::after { left: 130%; }
+
+/* ─── Progress bar ─── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #7EC828, #9FD84A);
+  z-index: 9999;
+  transform-origin: left;
+}
